@@ -39,12 +39,3 @@ def uniquetocoord(unique):
     y = unique % m
     y = y* 0.00005
     return [x+8.0,y+68.0]
-    
-# while True:
-#     k = input("Enter:")
-#     k = k.split(', ')
-#     print((coord_to_w3w((k[0]),(k[1]))))
-#     m = input("Enter address")
-#     uniquetocoord(w3wtounique(m))
-    
-
