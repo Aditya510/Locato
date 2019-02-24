@@ -1,28 +1,23 @@
+
 words = open('googlecommon10000.txt','r')
 lis = []
 for item in words.readlines():
     lis.append(item[:-1])
 
 
-
+import flask
 
 
 def coord_to_w3w(x,y):
-  x = str(float(x)-8.0)
-  y= str(float(y)-68.0)
+  x = (float(x)-8.0)
+  y= (float(y)-68.0)
   m = 29 * 150 * 200
-
-  print(x,y)
-  
-
-  x = float(x)
-  y = float(y)
-  x1 = x // 0.00005# 0.00005
-  y1 = y // 0.00005 #0.00005
+  x1 = x // 0.00005
+  y1 = y // 0.00005
   unique = str(int(m * x1 + y1 ))
-  
+  print(unique)
   num1,num2,num3 = int(unique[:4]),int(unique[4:8]),int(unique[8:12])
-  
+  print(num1,num2,num3)
   w3w= lis[num1]+"."+lis[num2]+"."+lis[num3]
   return w3w
   
@@ -40,17 +35,16 @@ def w3wtounique(w3w):
 def uniquetocoord(unique):
     m = 29*150*200  #no of blocks in one vertical row across india, aim is to create a 2D array on india
     x = unique // m
-    print(x)
     x = x * 0.00005
-    print(x)
     y = unique % m
-    print(y)
     y = y* 0.00005
-    print(x+8.0,y+68.0)
+    return [x+8.0,y+68.0]
     
-while True:
-    k = input("Enter:")
-    k = k.split(', ')
-    print((coord_to_w3w((k[0]),(k[1]))))
-    m = input("Enter address")
-    uniquetocoord(w3wtounique(m))
+# while True:
+#     k = input("Enter:")
+#     k = k.split(', ')
+#     print((coord_to_w3w((k[0]),(k[1]))))
+#     m = input("Enter address")
+#     uniquetocoord(w3wtounique(m))
+    
+
