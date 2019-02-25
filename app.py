@@ -1,21 +1,34 @@
 from flask import Flask
-
+from flask import jsonify
 app = Flask(__name__)
 
 import corealgo
+
+
+
 @app.route("/forward/<longlat>", methods = ['GET'])
 def forward(longlat):
     cordlis = longlat.split(',')
     x,y = cordlis[0], cordlis[1]
-    return corealgo.coord_to_w3w(x,y)
+    address= corealgo.coord_to_w3w(x,y)
+    dict= {}
+    dict['address'] = address
+    return jsonify(dict)
 
 @app.route("/reverse/<words>", methods = ['GET'])
 def reverse(words):
     coords = (corealgo.uniquetocoord(corealgo.w3wtounique(words)))
     x,y = coords[0],coords[1]
-    return ('Coordinates: ' + str(x)[:7] + ', ' + str(y)[:7])
+    dict={}
+    dict['x'] = x
+    dict['y'] = y
+    dict['Error'] = 'No'
+    return jsonify(dict)
 
 
+@app.route('/')
+def base():
+    return ("Enter a URL of the form '/reverse/hello.world.me' or '/forward/23.456,45.345'")
 if __name__ == '__main__':
     app.run(debug=True)
 
