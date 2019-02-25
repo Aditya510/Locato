@@ -39,7 +39,10 @@ def uniquetocoord(unique):
     y = unique % m
     y = y* 0.00005
     return [x+8.0,y+68.0]
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 66b431015ac7579a897308714993b5f5df246502
