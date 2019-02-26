@@ -1,5 +1,5 @@
 
-words = open('/home/locatolocato/locato/googlecommon10000.txt','r')
+words = open('googlecommon10000.txt','r')
 lis = []
 for item in words.readlines():
     lis.append(item[:-1])
@@ -39,7 +39,7 @@ def uniquetocoord(unique):
     y = unique % m
     y = y* 0.00005
     return [x+8.0,y+68.0]
-<<<<<<< HEAD
+
 
 
 
