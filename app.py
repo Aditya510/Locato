@@ -3,9 +3,6 @@ from flask import jsonify
 app = Flask(__name__)
 
 import corealgo
-
-
-
 @app.route("/forward/<longlat>", methods = ['GET'])
 def forward(longlat):
     cordlis = longlat.split(',')
