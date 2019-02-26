@@ -43,6 +43,3 @@ def uniquetocoord(unique):
 
 
 
-
-=======
->>>>>>> 66b431015ac7579a897308714993b5f5df246502
