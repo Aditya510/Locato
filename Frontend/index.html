@@ -1,13 +1,37 @@
-<!DOCTYPE html>
-<script async src="./javascript/index.js"></script>
-<link rel="stylesheet" href="styles/styles.css" />
-<html>
-  <head>
-    <title>My webpage!</title>
-  </head>
-  <body>
-    <h1 id='name'></h1>
-    <h1 id='sed'>Adi</h1>
-    <h4 id='date'>chuts</h4>
-  </body>
-</html>
+<header>
+</header>
+<script>
+    function getaddress(requestURL) {
+        var header = document.querySelector('header');
+        var request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function() {
+            var address = request.response;
+            populateHeader(address,header);}}
+
+    function getInput() {
+        var x = document.getElementById("latitude").value;
+        var y = document.getElementById("longitude").value;
+        var requestURL = 'https://locatolocato.pythonanywhere.com/forward/' + x + ',' + y;
+        getaddress(requestURL)
+}
+
+    function populateHeader(jsonObj,header) {
+        var myH1 = document.createElement('h1');
+        myH1.textContent = jsonObj['address'];
+        header.appendChild(myH1);
+}
+</script>
+
+Latitude:   <input type="text" name="latitude" id="latitude">
+<br><br> <br>
+Longitude:  <input type="text" name="longitude" id="longitude">
+<br><br>
+    <button onclick="getInput()"> Submit </button>
+
+
+
+<section>
+</section>
