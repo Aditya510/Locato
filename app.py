@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import jsonify
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 import corealgo
 
@@ -17,13 +19,21 @@ def forward(longlat):
 
 @app.route("/reverse/<words>", methods = ['GET'])
 def reverse(words):
-    coords = (corealgo.uniquetocoord(corealgo.w3wtounique(words)))
-    x,y = coords[0],coords[1]
     dict={}
-    dict['x'] = x
-    dict['y'] = y
-    dict['Error'] = 'No'
-    return jsonify(dict)
+    try:
+        coords = (corealgo.uniquetocoord(corealgo.w3wtounique(words)))
+        x,y = coords[0],coords[1]
+
+        dict['x'] = x
+        dict['y'] = y
+        dict['Message'] = 'Successful'
+        dict['Status code'] = 200
+        return jsonify(dict)
+    except:
+        dict['Status code'] = 500
+        dict['Message'] = 'Given word combination is out of range'
+        return jsonify(dict)
+
 
 
 @app.route('/')
