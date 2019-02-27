@@ -52,10 +52,10 @@ function myfun()
     alert("pls select")
   }
   if(s.value == 1){
-     window.location="file:///C:/Users/MUKUL%20SINGH/Desktop/Locato/locato/Frontend/coord2locato.html";
+     window.location="locato2coord.html";
   }
   if(s.value == 2){
-     window.location="file:///C:/Users/MUKUL%20SINGH/Desktop/Locato/locato/Frontend/locato2coord.html";
+     window.location="coord2locato.html";
   }
 
 }
