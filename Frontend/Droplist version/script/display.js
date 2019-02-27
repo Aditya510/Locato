@@ -23,14 +23,14 @@ function getCoord(requestURL) {
 
 }
 function getInput() {
-    var x = document.getElementById("latitude").value;
-    var y = document.getElementById("longitude").value;
-    var requestURL = 'https://locatolocato.pythonanywhere.com/forward/' + x + ',' + y;
+    var lati = document.getElementById("latitude").value;
+    var longi = document.getElementById("longitude").value;
+    var requestURL = 'https://locatolocato.pythonanywhere.com/forward/' + lati + ',' + longi;
     getaddress(requestURL)
 }
 function getReverseInput() {
-    var x = document.getElementById("locato").value;
-    var requestURL = 'https://locatolocato.pythonanywhere.com/reverse/' + x ;
+    var locato = document.getElementById("locato").value;
+    var requestURL = 'https://locatolocato.pythonanywhere.com/reverse/' + locato ;
 
     getCoord(requestURL)
 }
@@ -45,16 +45,16 @@ function populateHeaderWithXY(jsonObj,header) {
     myH1.textContent = jsonObj['x'].toString()+","+jsonObj['y'].toString();
     header.appendChild(myH1);
 }
-function myfun()
+function RedirectionFromDropMenu()
 {
-  var s = document.getElementById('item1');
-  if(s.value == 0){
-    alert("pls select")
+  var SelectedChoice = document.getElementById('WhatToDo');
+  if(SelectedChoice.value == 0){
+    alert("Please select one option")
   }
-  if(s.value == 1){
+  if(SelectedChoice.value == 1){
      window.location="locato2coord.html";
   }
-  if(s.value == 2){
+  if(SelectedChoice.value == 2){
      window.location="coord2locato.html";
   }
 
