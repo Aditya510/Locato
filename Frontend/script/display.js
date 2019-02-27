@@ -45,3 +45,17 @@ function populateHeaderWithXY(jsonObj,header) {
     myH1.textContent = jsonObj['x'].toString()+","+jsonObj['y'].toString();
     header.appendChild(myH1);
 }
+function myfun()
+{
+  var s = document.getElementById('item1');
+  if(s.value == 0){
+    alert("pls select")
+  }
+  if(s.value == 1){
+     window.location="file:///C:/Users/MUKUL%20SINGH/Desktop/Locato/locato/Frontend/coord2locato.html";
+  }
+  if(s.value == 2){
+     window.location="file:///C:/Users/MUKUL%20SINGH/Desktop/Locato/locato/Frontend/locato2coord.html";
+  }
+
+}
