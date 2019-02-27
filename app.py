@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 from flask_cors import CORS
+import git
 app = Flask(__name__)
 CORS(app)
 
@@ -31,7 +32,17 @@ def reverse(words):
         dict['Message'] = 'Given word combination is out of range'
         return jsonify(dict)
 
-
+@app.route('/webhook', methods=['POST'])
+    def webhook():
+        if request.method == 'POST':
+            repo = git.Repo('.')
+            origin = repo.remotes.origin
+            repo.create_head('master', 
+        origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
+            origin.pull()
+            return '', 200
+        else:
+            return '', 400
 
 @app.route('/')
 def base():
