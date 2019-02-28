@@ -31,22 +31,20 @@ def reverse(words):
         dict['Status code'] = 500
         dict['Message'] = 'Given word combination is out of range'
         return jsonify(dict)
-
 @app.route('/webhook', methods=['POST'])
-    def webhook():
-        if request.method == 'POST':
-            repo = git.Repo('.')
-            origin = repo.remotes.origin
-            repo.create_head('master', 
-        origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
-            origin.pull()
-            return '', 200
-        else:
-            return '', 400
+def webhook():
+    if request.method == 'POST':
+        repo = git.Repo('.')
+        origin = repo.remotes.origin
+        repo.create_head('master',
+    origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
+        origin.pull()
+        return '', 200
+    else:
+        return '', 400
 
 @app.route('/')
 def base():
     return ("Enter a URL of the form '/reverse/hello.world.me' or '/forward/23.456,45.345'")
 if __name__ == '__main__':
     app.run(debug=True)
-
