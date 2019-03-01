@@ -57,5 +57,18 @@ function RedirectionFromDropMenu()
   if(SelectedChoice.value == 2){
      window.location="coord2locato.html";
   }
+}
+var x = document.getElementById("demo");
 
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  var requestURL = 'https://locatolocato.pythonanywhere.com/forward/' + position.coords.latitude + ',' + position.coords.longitude;
+  getaddress(requestURL)
 }
