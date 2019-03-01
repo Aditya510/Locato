@@ -18,6 +18,7 @@ function getCoord(requestURL) {
     request.send();
     request.onload = function() {
       var json = request.response;
+      MakeAMap(json)
       populateHeaderWithXY(json,header);
         }
 
@@ -58,4 +59,16 @@ function RedirectionFromDropMenu()
      window.location="coord2locato.html";
   }
 
+}
+
+function MakeAMap(json) {
+    var Coordinates = [json.x, json.y];
+	    tomtom.setProductInfo('<your-product-name>', '<your-product-version>');
+            tomtom.L.map('map', {
+		    key: 'mHZ3jce2dXHZv7VulmjvM6auHUIRYy8j',
+                    source: 'raster',
+                    basePath: 'sdk',
+                    center: Coordinates,
+                    zoom: 15
+	    });
 }
