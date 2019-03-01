@@ -53,10 +53,10 @@ function RedirectionFromDropMenu()
     alert("Please select one option")
   }
   if(SelectedChoice.value == 1){
-     window.location="locato2coord.html";
+     window.location="frontend/locato2coord.html";
   }
   if(SelectedChoice.value == 2){
-     window.location="coord2locato.html";
+     window.location="frotnend/coord2locato.html";
   }
 }
 var x = document.getElementById("demo");
