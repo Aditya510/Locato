@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My map</title>
+        <link rel='stylesheet' type='text/css' href='sdk/map.css'/>
+        <script src='sdk/tomtom.min.js'></script>
+    </head>
+    <body>
+        <div id='map' style='height:500px;width:500px'></div>
+        <script>
+            var Coordinates = [37.36729, -121.91595];
+	    tomtom.setProductInfo('<your-product-name>', '<your-product-version>');
+            tomtom.L.map('map', {
+		    key: 'mHZ3jce2dXHZv7VulmjvM6auHUIRYy8j',
+                    source: 'raster',
+                    basePath: 'sdk',
+                    center: Coordinates,
+                    zoom: 15
+	    });
+        </script>
+    </body>
+</html>
