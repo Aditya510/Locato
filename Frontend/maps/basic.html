@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>My map</title>
+        <link rel='stylesheet' type='text/css' href='sdk/map.css'/>
+        <script src='sdk/tomtom.min.js'></script>
+        <style>
+          #map {
+              height: 500px;
+              width: 500px;
+          }
+        </style>
+    </head>
+    <body>
+        <div id='map'></div>
+        <script>
+						  var speedyPizzaCoordinates = [37.36729, -121.91595];
+							var map = tomtom.L.map('map', {
+		 key: 'mHZ3jce2dXHZv7VulmjvM6auHUIRYy8j',
+		 basePath: '<sdk>',
+		 center: speedyPizzaCoordinates,
+		 zoom: 15
+ });
+  var marker = tomtom.L.marker(speedyPizzaCoordinates).addTo(map);
+	marker.bindPopup('The Locato corresponds to this').openPopup();
+	//					var map = tomtom.L.map('map', {
+    //            key: 'mHZ3jce2dXHZv7VulmjvM6auHUIRYy8j',
+      //          basePath: '<sdk>',
+        //    });
+        </script>
+    </body>
+</html>
