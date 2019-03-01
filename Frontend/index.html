@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <p>Click the button to get your coordinates.</p>
-
-
-<script type="text/javascript" src="script/display.js"></script>
-</head>
 <body>
-<header>
-</header>
-Latitude:   <input type="text" name="latitude" id="latitude">
-<br><br> <br>
-Longitude:  <input type="text" name="longitude" id="longitude">
-<br><br>
-    <button onclick="getInput()"> Submit </button>
 
-  Locato:  <input type="text" name="locato" id="locato">
-  <button onclick="getReverseInput()"> Submit </button>
+<h1>LOCATO</h1>
+<p>What do you want to do ? </p>
 
-<section>
-</section>
+  <select id= "WhatToDo" name="Select Action">
+    <option value="0"> Select what you want to do!  </OPTION>
+    <option value="1"> Locato to Coordinates </option>
+    <option value="2"> Coordinates to Locato </option>
+  </select>
+  <br><br>
+<script type="text/javascript" src="script/display.js">
+</script>
+
+  <button type="button" onclick = "RedirectionFromDropMenu()">
+     Submit
+  </button>
 </body>
 </html>
