@@ -18,7 +18,7 @@ function getCoord(requestURL) {
     request.send();
     request.onload = function() {
       var json = request.response;
-      MakeAMap(json)
+      MakeAMap(json);
       populateHeaderWithXY(json,header);
         }
 
