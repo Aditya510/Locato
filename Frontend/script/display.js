@@ -75,13 +75,14 @@ function showPosition(position) {
 }
 
 function MakeAMap(json) {
-    var Coordinates = [json.x, json.y];
-	    tomtom.setProductInfo('<your-product-name>', '<your-product-version>');
-            tomtom.L.map('map', {
-		    key: 'mHZ3jce2dXHZv7VulmjvM6auHUIRYy8j',
-                    source: 'raster',
-                    basePath: 'sdk',
-                    center: Coordinates,
-                    zoom: 15
-	    });
+    var speedyPizzaCoordinates = [json.x, json.y];
+    var map = tomtom.L.map('map', {
+key: 'mHZ3jce2dXHZv7VulmjvM6auHUIRYy8j',
+basePath: '<sdk>',
+center: speedyPizzaCoordinates,
+zoom: 15
+});
+var marker = tomtom.L.marker(speedyPizzaCoordinates).addTo(map);
+marker.bindPopup('<h3> YOUR LOCATO CORRESPONDS TO: </h3>').openPopup();
+
 }
