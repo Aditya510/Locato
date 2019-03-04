@@ -1,5 +1,1 @@
-﻿
-गांड मराओ
-
-Sach mai.
-<TES
+Locato - Making addresses simpler.
